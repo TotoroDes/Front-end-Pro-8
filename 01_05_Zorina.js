@@ -1,12 +1,5 @@
-
-
 var arr = [1,47,6,81,19,'66',5,14,53,45,67,56];
-
-
 console.log(arr);
-
-
-
 
 
 ///every 
@@ -20,8 +13,6 @@ result = false;
 break;
 	}
 
-	
-
 }
 
 
@@ -30,10 +21,7 @@ return result;
 }
 
 
-
 console.log(everyArr(arr));
-
-
 
 
 ///some 
@@ -47,16 +35,12 @@ result = true;
 break;
 	}
 
-	
-
 }
 
 
 return result;
 
 }
-
-
 
 
 console.log(someArr(arr));
@@ -78,7 +62,6 @@ console.log(inputArray[i])
 forEachArr(arr);
 
 
-
 //filter
 
 function filterArr(inputArray){
@@ -89,7 +72,6 @@ if(inputArray[i] > inputArray[i+1]){
 result.push(inputArray[i]);
 
 	}
-
 	
 }
 
@@ -97,7 +79,6 @@ result.push(inputArray[i]);
 return result;
 
 }
-
 
 
 console.log(filterArr(arr));
