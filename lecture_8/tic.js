@@ -1,6 +1,7 @@
 var game = function (num) {
     var cols = num;
     var rows = num;
+
     var matrix = [];
     for (var i = 0; i < rows; i++){
         matrix[i] = [];
@@ -8,12 +9,21 @@ var game = function (num) {
             matrix[i][j] = '';
         }}
     return matrix;
+
+
 }
 
 var matrixNew = game(7);
+
 var result = null;
 
+
 var getWinner = function (gameBoard) {
+
+    var cols = gameBoard.length;
+    var rows = gameBoard[0].length;
+
+
   var checkRows = function (gameBoard) {
     for (var i = 0; i < rows; i++) {
         var coordRow = gameBoard[0][i];
@@ -25,7 +35,7 @@ var getWinner = function (gameBoard) {
             }
         }
 if(resultRows){
-    result = gameBoard[0][i];
+    result = gameBoard[i][j];
 }
 
     }
@@ -45,7 +55,7 @@ var checkCols = function (gameBoard) {
             }
         }
         if(resultCols){
-            result = gameBoard[i][0];
+            result = gameBoard[j][i];
         }
 
     }
@@ -64,7 +74,7 @@ var checkDiagonal = function (gameBoard) {
         }
 
         if(resultDiag){
-            result = gameBoard[0][0];
+            result = gameBoard[i][i];
         }
     }
     return result;
@@ -80,12 +90,12 @@ var checkInverseDiagonal = function (gameBoard) {
         }
 
         if(resultDiag){
-            result = gameBoard[cols-1][cols-1];
+            result = gameBoard[i][i];
         }
     }
     return result;
 }
-
+    return result;
 }
 
 var winner = getWinner(matrixNew);
