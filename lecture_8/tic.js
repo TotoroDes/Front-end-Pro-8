@@ -1,10 +1,6 @@
 var game = function (num) {
     var cols = num;
     var rows = num;
-
-    var cross ='x';
-    var zero = '0';
-
     var matrix = [];
     for (var i = 0; i < rows; i++){
         matrix[i] = [];
