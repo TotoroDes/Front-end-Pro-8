@@ -1,3 +1,24 @@
+//если честно не работает, не пойму что не так
+
+var game = function (num) {
+    var cols = num;
+    var rows = num;
+
+    var matrix = [];
+    for (var i = 0; i < rows; i++){
+        matrix[i] = [];
+        for (var j = 0; j < cols; j++){
+            matrix[i][j] = '';
+        }}
+    return matrix;
+
+
+}
+
+var matrixNew = game(7);
+
+var result = null;
+var coord;
 
 var getWinner = function (gameBoard) {
 
