@@ -1,22 +1,3 @@
-var game = function (num) {
-    var cols = num;
-    var rows = num;
-
-    var matrix = [];
-    for (var i = 0; i < rows; i++){
-        matrix[i] = [];
-        for (var j = 0; j < cols; j++){
-            matrix[i][j] = '';
-        }}
-    return matrix;
-
-
-}
-
-var matrixNew = [["0", "x", "x"],["0", "x", "0"],["x","0","x"]];
-
-var result = null;
-var coord;
 
 var getWinner = function (gameBoard) {
 
@@ -81,16 +62,16 @@ var checkDiagonal = function (gameBoard) {
     }
 
 var checkInverseDiagonal = function (gameBoard) {
-    coord = gameBoard[cols-1][cols-1];
+    coord = gameBoard[0][cols-1];
     var resultDiag = true;
     for (var i = 0; i < cols; i++) {
-        if (coord !== gameBoard[cols-1-i][cols-1-i]) {
+        if (coord !== gameBoard[i][cols-1-i]) {
             resultDiag = false;
             break;
         }
 
         if(resultDiag){
-            result = gameBoard[cols-1][cols-1];
+            result = gameBoard[0][cols-1];
         }
     }
     return result;
