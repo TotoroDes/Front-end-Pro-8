@@ -13,7 +13,7 @@ var game = function (num) {
 
 }
 
-var matrixNew = game(7);
+var matrixNew = [["0", "x", "x"],["0", "x", "0"],["x","0","x"]];
 
 var result = null;
 var coord;
