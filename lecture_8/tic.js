@@ -16,7 +16,7 @@ var game = function (num) {
 var matrixNew = game(7);
 
 var result = null;
-
+var coord;
 
 var getWinner = function (gameBoard) {
 
@@ -26,16 +26,16 @@ var getWinner = function (gameBoard) {
 
   var checkRows = function (gameBoard) {
     for (var i = 0; i < rows; i++) {
-        var coordRow = gameBoard[0][i];
+       coord = gameBoard[0][i];
         var resultRows = true;
         for(var j = 0; j < cols; j++){
-            if (coordRow !== gameBoard[i][j]) {
+            if (coord !== gameBoard[j][i]) {
                 resultRows = false;
                 break;
             }
         }
 if(resultRows){
-    result = gameBoard[i][j];
+    result = gameBoard[0][0];
 }
 
     }
@@ -46,16 +46,16 @@ if(resultRows){
 
 var checkCols = function (gameBoard) {
     for (var i = 0; i < cols; i++) {
-        var coordCol = gameBoard[i][0];
+        coord = gameBoard[i][0];
         var resultCols = true;
         for(var j = 0; j < rows; j++){
-            if (coordCol !== gameBoard[j][i]) {
+            if (coord !== gameBoard[i][j]) {
                 resultCols = false;
                 break;
             }
         }
         if(resultCols){
-            result = gameBoard[j][i];
+            result = gameBoard[0][0];
         }
 
     }
@@ -65,32 +65,32 @@ var checkCols = function (gameBoard) {
 }
 
 var checkDiagonal = function (gameBoard) {
-    var coordDiag = gameBoard[0][0];
+    coord = gameBoard[0][0];
     var resultDiag = true;
     for (var i = 0; i < cols; i++) {
-          if (coordDiag !== gameBoard[i][i]) {
+          if (coord !== gameBoard[i][i]) {
               resultDiag = false;
             break;
         }
 
         if(resultDiag){
-            result = gameBoard[i][i];
+            result = gameBoard[0][0];
         }
     }
     return result;
     }
 
 var checkInverseDiagonal = function (gameBoard) {
-    var coordDiag = gameBoard[cols-1][cols-1];
+    coord = gameBoard[cols-1][cols-1];
     var resultDiag = true;
     for (var i = 0; i < cols; i++) {
-        if (coordDiag !== gameBoard[cols-1-i][cols-1-i]) {
+        if (coord !== gameBoard[cols-1-i][cols-1-i]) {
             resultDiag = false;
             break;
         }
 
         if(resultDiag){
-            result = gameBoard[i][i];
+            result = gameBoard[cols-1][cols-1];
         }
     }
     return result;
