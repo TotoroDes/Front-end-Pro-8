@@ -1,5 +1,3 @@
-//если честно не работает, не пойму что не так
-
 var game = function (num) {
     var cols = num;
     var rows = num;
