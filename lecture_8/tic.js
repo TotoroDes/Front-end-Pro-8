@@ -8,14 +8,10 @@ var game = function (num) {
             matrix[i][j] = '';
         }}
     return matrix;
-
-
 }
 
 var matrixNew = game(7);
-
 var result = null;
-
 
 var getWinner = function (gameBoard) {
   var checkRows = function (gameBoard) {
