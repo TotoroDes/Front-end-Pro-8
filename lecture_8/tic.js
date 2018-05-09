@@ -97,6 +97,12 @@ var checkInverseDiagonal = function (gameBoard) {
     }
     return result;
 }
+checkCols(gameBoard);
+checkRows(gameBoard);
+checkDiagonal(gameBoard);
+checkInverseDiagonal(gameBoard);
+
+
     return result;
 }
 
