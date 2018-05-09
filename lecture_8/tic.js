@@ -25,7 +25,7 @@ var getWinner = function (gameBoard) {
             }
         }
 if(resultRows){
-    result = gameBoard[i][j];
+    result = gameBoard[0][i];
 }
 
     }
@@ -45,7 +45,7 @@ var checkCols = function (gameBoard) {
             }
         }
         if(resultCols){
-            result = gameBoard[j][i];
+            result = gameBoard[i][0];
         }
 
     }
@@ -64,7 +64,7 @@ var checkDiagonal = function (gameBoard) {
         }
 
         if(resultDiag){
-            result = gameBoard[i][i];
+            result = gameBoard[0][0];
         }
     }
     return result;
@@ -80,7 +80,7 @@ var checkInverseDiagonal = function (gameBoard) {
         }
 
         if(resultDiag){
-            result = gameBoard[i][i];
+            result = gameBoard[cols-1][cols-1];
         }
     }
     return result;
