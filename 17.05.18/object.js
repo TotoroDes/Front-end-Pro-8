@@ -9,12 +9,10 @@ var isvalid = true;
         isvalid = false;
     }
     if(!isFinite(+this.balance)){
-        isvalid = false;
-      
+        isvalid = false;  
     }
     if(this.email.indexOf('@') === -1 || this.email.trim().length === 0){
-        isvalid = false;
-       
+        isvalid = false;     
     }
 return isvalid;
   };
@@ -23,10 +21,8 @@ return isvalid;
     if(isFinite(Number(this.balance))){
       return (Number(this.balance));
     }
-
   };
 }
-
 
 /*
 var userString = 'firstName=John, email=example@gmail.com, balance=300; firstName=Test, lastName=Test, email=admin@gmail.com, balance=1000';
@@ -51,30 +47,17 @@ var obg = new User('user','user','eser@user',300);
 */
 
 var str = 'firstName=John, email=example@gmail.com, balance=300; firstName=Test, lastName=Test, email=admin@gmail.com, balance=1000';
-
-
-
 var objOne = str.split(';').map(function(userAtrributesString){
-  return userAtrributesString.split(',').reduce(function (result, keyValueString) {
-
+return userAtrributesString.split(',').reduce(function (result, keyValueString) {
 var keyAndValue = keyValueString.split('=');
-
  result[keyAndValue[0].trim()] = keyAndValue[1].trim();
-
   return result;
-
-
-  }, new User);   // Как сделать валидным объектом класса еще не придумала и не успела подумать((
+  }, new User);   // не успела сделать правильно((
 });
-
-
-
 
 // Тут пошла жесть, не пугайтесь сильно))
 
 var UserCollection = function(){
-
-  
   this.users = [];
 
   this.add = function (payload) {
@@ -100,8 +83,6 @@ this.users = [];
   };
 
   this.findBy = function (propertyName, propertyValue) {
-
-    
      var resultArray = this.users.reduce(function (result, keyValueString) {
 
   for(propertyName in keyValueString){
@@ -151,7 +132,7 @@ lastName:"Die"
 }
 
 
- userCollection = new UserCollection(objOne);
+userCollection = new UserCollection(objOne);
 
 userCollection.add(user2);
 userCollection.add(user3);
