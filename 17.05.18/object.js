@@ -138,7 +138,7 @@ userCollection.add(user2);
 userCollection.add(user3);
 userCollection.addAll(objOne); // не арбайтен, хотя вроде два массива 
 
-userCollection.sortBy('balance','desc'); //не арбайтен вообще вот такой исфинит не арбайтен
+userCollection.sortBy('balance','desc');
 /*
 this.valueOf = function(){
     if(isFinite(Number(this.attributes.balance))){
