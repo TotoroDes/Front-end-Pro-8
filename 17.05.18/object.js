@@ -100,7 +100,7 @@ return resultArray;
 
   if(order === 'asc'){
 this.users.sort(function (oneUser, twoUser){
-     return oneUser.[propertyName] - twoUser.[propertyName]; 
+     return oneUser[propertyName] - twoUser[propertyName]; 
 });
 
   
@@ -109,7 +109,7 @@ this.users.sort(function (oneUser, twoUser){
     if(order === 'desc'){
 
  var SortDescUsers = this.users.sort(function (oneUser, twoUser){
-     return twoUser.[[propertyName] - oneUser.[propertyName]; 
+     return twoUser[propertyName] - oneUser[propertyName]; 
 });
   };
   }
@@ -138,7 +138,7 @@ userCollection.add(user2);
 userCollection.add(user3);
 userCollection.addAll(objOne); // не арбайтен, хотя вроде два массива 
 
-userCollection.sortBy('balance','asc'); //не арбайтен вообще вот такой исфинит не арбайтен
+userCollection.sortBy('balance','desc'); //не арбайтен вообще вот такой исфинит не арбайтен
 /*
 this.valueOf = function(){
     if(isFinite(Number(this.attributes.balance))){
