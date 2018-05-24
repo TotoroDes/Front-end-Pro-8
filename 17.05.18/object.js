@@ -99,17 +99,17 @@ return resultArray;
  this.sortBy = function (propertyName, order) {
 
   if(order === 'asc'){
- /* var SortAscUsers = this.users.sort(function (oneUser, twoUser){
-     return oneUser.propertyName - twoUser.propertyName; 
+this.users.sort(function (oneUser, twoUser){
+     return oneUser.[propertyName] - twoUser.[propertyName]; 
 });
-*/
+
   
   }
 
     if(order === 'desc'){
 
  var SortDescUsers = this.users.sort(function (oneUser, twoUser){
-     return twoUser.propertyName - oneUser.propertyName; 
+     return twoUser.[[propertyName] - oneUser.[propertyName]; 
 });
   };
   }
