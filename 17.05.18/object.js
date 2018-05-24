@@ -73,7 +73,7 @@ var UserCollection = function(){
   };
 
  this.addAll = function (newUsersArray) { // не арбайтен, хотя вроде 2 массива
-    this.users.concat(newUsersArray);
+    this.users = this.users.concat(newUsersArray);
   };
 
    this.clear = function () {
@@ -100,16 +100,32 @@ return resultArray;
 
   if(order === 'asc'){
 this.users.sort(function (oneUser, twoUser){
-     return oneUser[propertyName] - twoUser[propertyName]; 
+     if(twoUser[propertyName] > oneUser[propertyName]){
+		return -1;
+	}
+	else if(twoUser[propertyName] < oneUser[propertyName]){
+          return 1;
+        }
+        else{
+          return 0;
+      }
 });
-
   
   }
 
     if(order === 'desc'){
 
- var SortDescUsers = this.users.sort(function (oneUser, twoUser){
-     return twoUser[propertyName] - oneUser[propertyName]; 
+this.users.sort(function (oneUser, twoUser){
+    if(twoUser[propertyName] < oneUser[propertyName]){
+		return -1;
+	}
+	else if(twoUser[propertyName] > oneUser[propertyName]){
+          return 1;
+        }
+        else{
+          return 0;
+      }
+	
 });
   };
   }
@@ -138,7 +154,7 @@ userCollection.add(user2);
 userCollection.add(user3);
 userCollection.addAll(objOne); // не арбайтен, хотя вроде два массива 
 
-userCollection.sortBy('balance','desc');
+userCollection.sortBy('balance','asc'); //не арбайтен вообще вот такой исфинит не арбайтен
 /*
 this.valueOf = function(){
     if(isFinite(Number(this.attributes.balance))){
