@@ -96,7 +96,38 @@ UserCollection.prototype = {
     }, []);
     return resultArray;
 };
-    sort:
+    sort: function (propertyName, order) {
+
+  if(order === 'asc'){
+this.users.sort(function (oneUser, twoUser){
+     if(twoUser[propertyName] > oneUser[propertyName]){
+		return -1;
+	}
+	else if(twoUser[propertyName] < oneUser[propertyName]){
+          return 1;
+        }
+        else{
+          return 0;
+      }
+});
+  
+  }
+
+    if(order === 'desc'){
+
+this.users.sort(function (oneUser, twoUser){
+    if(twoUser[propertyName] < oneUser[propertyName]){
+		return -1;
+	}
+	else if(twoUser[propertyName] > oneUser[propertyName]){
+          return 1;
+        }
+        else{
+          return 0;
+      }
+	
+});
+  };
 }
 
 
