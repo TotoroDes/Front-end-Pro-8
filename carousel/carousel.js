@@ -24,7 +24,8 @@ CarouselImage.prototype.next = function () {
 
 CarouselImage.prototype.prev = function () {
     if(this.currentSlide === 1){
-        this.currentSlide = this.itemsImg.length;
+        this.currentSlide = this.itemsImg.length+1;
+        this.currentPosition = (this.itemsImg.length)*this.width;
     }
     //   this.item.insertBefore(this.itemsImg[this.itemsImg.length], this.item.firstElementChild);
     this.currentPosition = Math.max(this.currentPosition - this.width, 0);
