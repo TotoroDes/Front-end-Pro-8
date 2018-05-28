@@ -11,21 +11,26 @@ var CarouselImage = function (rootElement) {
 };
 
 CarouselImage.prototype.next = function () {
-    if(this.currentSlide > this.itemsImg.length){
-        this.currentSlide = 1;
+    if(this.currentSlide > this.itemsImg.length-1){
+        this.currentSlide = 0;
     }
     this.currentPosition =  Math.min(this.currentSlide * this.width, this.itemsImgLenght-this.width);
     this.item.style.right = this.currentPosition +'px';
     this.currentSlide++;
      // this.item.appendChild(this.itemsImg[this.currentItemId]);
+    console.log(this.currentSlide);
       };
 
 
 CarouselImage.prototype.prev = function () {
+    if(this.currentSlide === 1){
+        this.currentSlide = this.itemsImg.length;
+    }
     //   this.item.insertBefore(this.itemsImg[this.itemsImg.length], this.item.firstElementChild);
     this.currentPosition = Math.max(this.currentPosition - this.width, 0);
     this.item.style.right = this.currentPosition +'px';
-    this.currentSlide++;
+    this.currentSlide--;
+    console.log(this.currentSlide);
          };
 
 CarouselImage.prototype.delegateEvents = function () {
