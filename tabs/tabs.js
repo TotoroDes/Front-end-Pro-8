@@ -1,3 +1,4 @@
+
 var TabMenu = function (rootElement, settings) {
     this.rootElement = rootElement;
     this.settings = mergeSettings(settings,this.defaultSettings);
@@ -15,15 +16,6 @@ TabMenu.prototype.defaultSettings = {
     active: 'isActive'
 };
 
-function mergeSettings(){
-    var result = {};
-    for (var i = 0; i < arguments.length; i++) {
-        for (var key in arguments[i]) {
-            result[key] =  arguments[i][key];
-        }
-    }
-    return  result;
-}
 
 TabMenu.prototype.handleClick = function (event) {
     this.currentTabId = this.headerItems.indexOf(event.target);
