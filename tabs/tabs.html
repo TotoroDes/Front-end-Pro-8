@@ -10,7 +10,6 @@
             border: 1px solid #ccc;
             background-color: #f1f1f1;
         }
-
         .tab button {
             background-color: inherit;
             float: left;
@@ -20,20 +19,15 @@
             padding: 14px 16px;
             transition: 0.3s;
         }
-
         .tab button:hover {
             background-color: #ddd;
         }
-
         button.tablinks.isActive {
             background: #ccc;
-
         }
         div.tabcontent.isActive {
             display: block;
         }
-
-
         .tabcontent {
             display: none;
             padding: 6px 12px;
@@ -44,31 +38,31 @@
 </head>
 <body>
 <div id="tabContent">
-<div class="tab">
-    <button class="tablinks">London</button>
-    <button class="tablinks">Paris</button>
-    <button class="tablinks">Tokyo</button>
+    <div class="tab">
+        <button class="tablinks">London</button>
+        <button class="tablinks">Paris</button>
+        <button class="tablinks">Tokyo</button>
+    </div>
+    <div class="tab-item">
+        <div id="London" class="tabcontent">
+            <h3>London</h3>
+            <p>London is the capital city of England.</p>
+        </div>
+        <div id="Paris" class="tabcontent">
+            <h3>Paris</h3>
+            <p>Paris is the capital of France.</p>
+        </div>
+        <div id="Tokyo" class="tabcontent">
+            <h3>Tokyo</h3>
+            <p>Tokyo is the capital of Japan.</p>
+        </div>
+    </div>
 </div>
-<div class="tab-item">
-<div id="London" class="tabcontent">
-    <h3>London</h3>
-    <p>London is the capital city of England.</p>
-</div>
-<div id="Paris" class="tabcontent">
-    <h3>Paris</h3>
-    <p>Paris is the capital of France.</p>
-</div>
-<div id="Tokyo" class="tabcontent">
-    <h3>Tokyo</h3>
-    <p>Tokyo is the capital of Japan.</p>
-</div>
- </div>
-</div>
+<script src="utils.js"></script>
 <script src="tabs.js"></script>
-    <script>
+<script>
     var TabMenu = new TabMenu(tabContent);
-    TabMenu.currentTabId = 2;
-  </script>
+    TabMenu.currentTabId = 3;
+</script>
 </body>
 </html>
-
