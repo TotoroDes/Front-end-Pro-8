@@ -59,3 +59,4 @@ Accordion.prototype.render = function () {
     this.delegateEvents();
     return this;
 };
+
