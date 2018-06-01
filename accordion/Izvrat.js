@@ -38,7 +38,6 @@ Object.defineProperty(Accordion.prototype, 'currentTabId', {
     }
 });
 
-
 Accordion.prototype.setActive = function (itemsCollection) {
     itemsCollection.forEach(function (item, index) {
         if (index === this.currentTabId) {
