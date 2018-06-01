@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accordion</title>
+    <style>
+        .accordion {
+            width: 400px;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+        .accordion-button {
+            background-color: crimson;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 0.5em;
+            transition: 0.3s;
+            width: 100%;
+            color: #fff;
+            font-size: 1.25em;
+        }
+        .accordion button:hover {
+            background-color: lightcoral;
+        }
+        .accordion button.isActive {
+            background: #ccc;
+
+        }
+        .accordion-content.isActive {
+            display: block;
+        }
+        .accordion-content {
+            display: none;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-top: none;
+            text-align: justify;
+            background: #f5f0f0;
+            color: #607D8B;
+        }
+        .tab {
+            width: 300px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        button.tablinks.isActive {
+            background: #ccc;
+
+        }
+        div.tabcontent.isActive {
+            display: block;
+        }
+
+
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+<div class="accordion" id="accordion">
+    <div class="accordion-click-one">
+<button class="accordion-button">One</button>
+    </div>
+<div class="accordion-content">
+    <div id="tabContent1">
+        <div class="tab">
+            <button class="tablinks">London</button>
+            <button class="tablinks">Paris</button>
+            <button class="tablinks">Tokyo</button>
+        </div>
+        <div class="tab-item">
+            <div class="tabcontent">
+                <h3>London</h3>
+                <p>London is the capital city of England.</p>
+            </div>
+            <div class="tabcontent">
+                <h3>Paris</h3>
+                <p>Paris is the capital of France.</p>
+            </div>
+            <div class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="accordion-click-two">
+<button class="accordion-button">Two</button>
+    </div>
+<div class="accordion-content">
+    <div id="tabContent2">
+        <div class="tab">
+            <button class="tablinks">Morocco</button>
+            <button class="tablinks">Okinava</button>
+            <button class="tablinks">Tokyo</button>
+        </div>
+        <div class="tab-item">
+            <div class="tabcontent">
+                <h3>Morocco</h3>
+                <p>Morocco its my love</p>
+            </div>
+            <div class="tabcontent">
+                <h3>Okinava</h3>
+                <p>Okinava.</p>
+            </div>
+            <div class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="accordion-click-three">
+<button class="accordion-button">Three</button>
+    </div>
+<div class="accordion-content">
+    <div id="tabContent3">
+        <div class="tab">
+            <button class="tablinks">London</button>
+            <button class="tablinks">Paris</button>
+            <button class="tablinks">Tokyo</button>
+        </div>
+        <div class="tab-item">
+            <div id="London" class="tabcontent">
+                <h3>London</h3>
+                <p>London is the capital city of England.</p>
+            </div>
+            <div id="Paris" class="tabcontent">
+                <h3>Paris</h3>
+                <p>Paris is the capital of France.</p>
+            </div>
+            <div id="Tokyo" class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="izvrat.js"></script>
+    <script>
+        var acc = new Accordion(accordion);
+        acc.currentTabId = 1;
+  </script>
+
+<script src="tabs.js"></script>
+<script>
+    var TabMenuOne = new TabMenu(tabContent1);
+    TabMenuOne.currentTabId = 0;
+
+    var TabMenuTwo = new TabMenu(tabContent2);
+    TabMenuTwo.currentTabId = 1;
+
+    var TabMenuThree = new TabMenu(tabContent3);
+    TabMenuThree.currentTabId = 2;
+</script>
+</body>
+</html>
+
