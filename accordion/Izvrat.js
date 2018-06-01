@@ -14,7 +14,7 @@ var Accordion = function (rootElement) {
  };
 
 Accordion.prototype.handleClickAccordion = function (event) {
-    this.currentTabId = this.buttonItem.indexOf(event.target);
+    this.currentTabId = this.buttonItems.indexOf(event.target);
     this.setActive(this.buttonItems);
     this.setActive(this.contentAccItems);
 };
