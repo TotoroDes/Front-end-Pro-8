@@ -1,21 +1,23 @@
 var AccordionTabs = function (rootElement) {
     this.rootElement = rootElement;
     this.AccordionItem = this.rootElement.querySelector('.accordionTabs');
-    this.AccordionItemOne = this.rootElement.querySelector('.main-item-one');
-    this.AccordionItemTwo = this.rootElement.querySelector('.main-item-two');
-    this.tabsButton = this.rootElement.querySelector('.accordion-item');
-    this.tabsContent = this.rootElement.querySelector('.content');
+    this.AccordionItemOne = this.rootElement.querySelectorAll('.main-item-one');
+    this.buttonItemOne = this.rootElement.getElementsByClassName('main-item-one');
+    this.buttonItemsOne = [].slice.call(this.buttonItemOne);
+    this.contentAccOne = this.rootElement.getElementsByClassName('content-one');
+    this.contentAccItemsOne = [].slice.call(this.contentAccOne);
     this.buttonItem = this.AccordionItem.getElementsByClassName('accordion-item');
     this.buttonItems = [].slice.call(this.buttonItem);
     this.contentAcc = this.AccordionItem.getElementsByClassName('content');
     this.contentAccItems = [].slice.call(this.contentAcc);
     this.currentTabId = 0;
     this.active = 'isActive';
+    this.currentTabIdOne = 0;
     this.handleClickAccordion = this.handleClickAccordion.bind(this);
-    this.toggleAccordion = this.toggleAccordion.bind(this);
     this.handleClickAccordionOne = this.handleClickAccordionOne.bind(this);
-
-};
+    this.toggleAccordion = this.toggleAccordion.bind(this);
+    this.toggleAccordionOne = this.toggleAccordionOne.bind(this);
+   };
 
 AccordionTabs.prototype.handleClickAccordion = function (event) {
     this.currentTabId = this.buttonItems.indexOf(event.target);
@@ -23,17 +25,20 @@ AccordionTabs.prototype.handleClickAccordion = function (event) {
     this.setActive(this.contentAccItems);
 };
 
-AccordionTabs.prototype.handleClickAccordionOne = function () {
-      this.tabsButton.classList.toggle(this.active);
-    this.tabsContent.classList.toggle(this.active);
-};
-
-
-
 AccordionTabs.prototype.toggleAccordion = function(){
     this.buttonItems[this.currentTabId].classList.add(this.active);
     this.contentAccItems[this.currentTabId].classList.add(this.active);
 
+};
+
+AccordionTabs.prototype.setActive = function (itemsCollection) {
+    itemsCollection.forEach(function (item, index) {
+        if (index === this.currentTabId) {
+            item.classList.add(this.active);
+        } else {
+            item.classList.remove(this.active);
+        }
+    }.bind(this));
 };
 
 Object.defineProperty(AccordionTabs.prototype, 'currentTabId', {
@@ -47,22 +52,37 @@ Object.defineProperty(AccordionTabs.prototype, 'currentTabId', {
 
     }
 });
-AccordionTabs.prototype.setActive = function (itemsCollection) {
-    itemsCollection.forEach(function (item, index) {
-        if (index === this.currentTabId) {
-            item.classList.add(this.active);
-        } else {
-            item.classList.remove(this.active);
-        }
-    }.bind(this));
+
+AccordionTabs.prototype.handleClickAccordionOne = function (event) {
+    this.currentTabIdOne = this.buttonItemsOne.indexOf(event.target);
+    this.buttonItemOne[this.currentTabIdOne].classList.toggle(this.active);
+    this.contentAccOne[this.currentTabIdOne].classList.toggle(this.active);
 };
+
+AccordionTabs.prototype.toggleAccordionOne = function(){
+    this.buttonItemOne[this.currentTabIdOne].classList.add(this.active);
+    this.contentAccOne[this.currentTabIdOne].classList.add(this.active);
+};
+
+Object.defineProperty(AccordionTabs.prototype, 'currentTabIdOne', {
+    get: function () {
+        return this._currentTabIdOne;
+    },
+    set: function (value) {
+        this._currentTabIdOne = (value <= 0)? 0 : Math.min(value, this.buttonItemsOne.length - 1);
+
+        this.toggleAccordionOne();
+
+    }
+});
 
 AccordionTabs.prototype.delegateEvents = function () {
     this.AccordionItem.addEventListener('click', this.handleClickAccordion);
-    this.AccordionItemOne.addEventListener('click', this.handleClickAccordionOne);
-    this.AccordionItemTwo.addEventListener('click', this.handleClickAccordionOne);
+    for (var i = 0, len = this.AccordionItemOne.length; i < len; i++){
+        this.AccordionItemOne[i].addEventListener("click", this.handleClickAccordionOne);
+    }
 
-       return this;
+          return this;
 };
 
 
