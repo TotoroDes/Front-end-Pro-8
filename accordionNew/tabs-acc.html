@@ -51,15 +51,15 @@
 <body>
 
 <div class="main" id="accordionTabs">
-    <div class="main-item main-item-one">
+    <div class="main-item">
         <button class="accordion-item main-item-one">Japan</button>
-        <div class="content">
+        <div class="content content-one">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
     </div>
-    <div class="main-item main-item-one">
-        <button class="accordion-item main-item-two">Morocco</button>
-        <div class="content">
+    <div class="main-item">
+        <button class="accordion-item main-item-one">Morocco</button>
+        <div class="content content-one">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
     </div>
@@ -80,7 +80,8 @@
     <script src="tabs-acc.js"></script>
     <script>
       var accTabs = new AccordionTabs(accordionTabs);
-      accTabs.currentTabId = 1;
+      accTabs.currentTabId = 2;
+      accTabs.currentTabIdOne = 0;
       accTabs.render();
              </script>
 
