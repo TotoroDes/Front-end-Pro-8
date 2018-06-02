@@ -1,95 +1,89 @@
-var AccordionTabs = function (rootElement) {
-    this.rootElement = rootElement;
-    this.AccordionItem = this.rootElement.querySelector('.accordionTabs');
-    this.AccordionItemOne = this.rootElement.querySelectorAll('.main-item-one');
-    this.buttonItemOne = this.rootElement.getElementsByClassName('main-item-one');
-    this.buttonItemsOne = [].slice.call(this.buttonItemOne);
-    this.contentAccOne = this.rootElement.getElementsByClassName('content-one');
-    this.contentAccItemsOne = [].slice.call(this.contentAccOne);
-    this.buttonItem = this.AccordionItem.getElementsByClassName('accordion-item');
-    this.buttonItems = [].slice.call(this.buttonItem);
-    this.contentAcc = this.AccordionItem.getElementsByClassName('content');
-    this.contentAccItems = [].slice.call(this.contentAcc);
-    this.currentTabId = 0;
-    this.active = 'isActive';
-    this.currentTabIdOne = 0;
-    this.handleClickAccordion = this.handleClickAccordion.bind(this);
-    this.handleClickAccordionOne = this.handleClickAccordionOne.bind(this);
-    this.toggleAccordion = this.toggleAccordion.bind(this);
-    this.toggleAccordionOne = this.toggleAccordionOne.bind(this);
-   };
-
-AccordionTabs.prototype.handleClickAccordion = function (event) {
-    this.currentTabId = this.buttonItems.indexOf(event.target);
-    this.setActive(this.buttonItems);
-    this.setActive(this.contentAccItems);
-};
-
-AccordionTabs.prototype.toggleAccordion = function(){
-    this.buttonItems[this.currentTabId].classList.add(this.active);
-    this.contentAccItems[this.currentTabId].classList.add(this.active);
-
-};
-
-AccordionTabs.prototype.setActive = function (itemsCollection) {
-    itemsCollection.forEach(function (item, index) {
-        if (index === this.currentTabId) {
-            item.classList.add(this.active);
-        } else {
-            item.classList.remove(this.active);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabs-acc</title>
+    <style>
+        .accordion-item {
+            background-color: crimson;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            font-size: 1.25em;
         }
-    }.bind(this));
-};
+        .main {
+            display: flex;
+            padding: 0.25em;
+        }
+        .main-item {
+            padding: 0.25em;
+            width: 100%;
+        }
+        .isActive, .accordion-item:hover {
+            background-color: #14DBB3;
+        }
+        .content.isActive{
+            display: block;
+        }
+        .accordion-item:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
 
-Object.defineProperty(AccordionTabs.prototype, 'currentTabId', {
-    get: function () {
-        return this._currentTabId;
-    },
-    set: function (value) {
-        this._currentTabId = (value <= 0)? 0 : Math.min(value, this.buttonItems.length - 1);
+        .isActive:after {
+            content: "\2212";
+        }
 
-        this.toggleAccordion();
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
 
-    }
-});
+<div class="main" id="accordionTabs">
+    <div class="main-item">
+        <button class="accordion-item main-item-one">Japan</button>
+        <div class="content content-one">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </div>
+    <div class="main-item">
+        <button class="accordion-item main-item-one">Morocco</button>
+        <div class="content content-one">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </div>
+    <div class="main-item accordionTabs">
+        <button class="accordion-item">Korea</button>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <button class="accordion-item">Australia</button>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <button class="accordion-item">Canada</button>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </div>
+    <script src="tabs-acc.js"></script>
+    <script>
+      var accTabs = new AccordionTabs(accordionTabs);
+      accTabs.currentTabId = 2;
+     
+      accTabs.render();
+             </script>
 
-AccordionTabs.prototype.handleClickAccordionOne = function (event) {
-    event.target.classList.toggle(this.active);
-    event.target.nextElementSibling.classList.toggle(this.active);
-};
-
-AccordionTabs.prototype.toggleAccordionOne = function(){
-    this.buttonItemsOne[this.currentTabIdOne].classList.add(this.active);
-    this.contentAccItemsOne[this.currentTabIdOne].classList.add(this.active);
-};
-
-
-Object.defineProperty(AccordionTabs.prototype, 'currentTabIdOne', {
-    get: function () {
-        return this._currentTabIdOne;
-    },
-    set: function (value) {
-        this._currentTabIdOne = (value <= 0)? 0 : Math.min(value, this.buttonItemsOne.length - 1);
-
-        this.toggleAccordionOne();
-
-    }
-});
-
-
-AccordionTabs.prototype.delegateEvents = function () {
-    this.AccordionItem.addEventListener('click', this.handleClickAccordion);
-    for (var i = 0, l = this.AccordionItemOne.length; i < l; i++){
-        this.AccordionItemOne[i].addEventListener("click", this.handleClickAccordionOne);
-    }
-          return this;
-};
-
-
-AccordionTabs.prototype.render = function () {
-    this.delegateEvents();
-    return this;
-};
-
-
-
+</body>
+</html>
