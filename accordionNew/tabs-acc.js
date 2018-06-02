@@ -54,15 +54,15 @@ Object.defineProperty(AccordionTabs.prototype, 'currentTabId', {
 });
 
 AccordionTabs.prototype.handleClickAccordionOne = function (event) {
-    this.currentTabIdOne = this.buttonItemsOne.indexOf(event.target);
-    this.setActiveOne(this.buttonItemsOne);
-    this.setActiveOne(this.contentAccItemsOne);
- };
+    event.target.classList.toggle(this.active);
+    event.target.nextElementSibling.classList.toggle(this.active);
+};
 
 AccordionTabs.prototype.toggleAccordionOne = function(){
     this.buttonItemsOne[this.currentTabIdOne].classList.add(this.active);
     this.contentAccItemsOne[this.currentTabIdOne].classList.add(this.active);
 };
+
 
 Object.defineProperty(AccordionTabs.prototype, 'currentTabIdOne', {
     get: function () {
@@ -76,13 +76,6 @@ Object.defineProperty(AccordionTabs.prototype, 'currentTabIdOne', {
     }
 });
 
-AccordionTabs.prototype.setActiveOne = function (itemsCollection) {
-    itemsCollection.forEach(function (item, index) {
-        if (index === this.currentTabIdOne) {
-            item.classList.toggle(this.active);
-        }
-    }.bind(this));
-};
 
 AccordionTabs.prototype.delegateEvents = function () {
     this.AccordionItem.addEventListener('click', this.handleClickAccordion);
