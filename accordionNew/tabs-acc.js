@@ -94,6 +94,3 @@ AccordionTabs.prototype.render = function () {
     this.delegateEvents();
     return this;
 };
-
-
-
