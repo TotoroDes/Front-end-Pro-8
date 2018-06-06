@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.modal-item {
+    width: 100%;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.main{
+    display: flex;
+    padding: 0.5em;
+}
+
+.modal-button {
+    background: crimson;
+    color: #fff;
+    border: 0;
+    padding: 0.75em 1.75em;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.modal-button-ok{
+    background: crimson;
+    color: #fff;
+    border: 0;
+    padding: 0.75em 1.75em;
+    border-radius: 3px;
+    cursor: pointer;
+    float: right;
+    margin: 10px;
+}
+
+.warning{
+    border: 3px solid #FFA500;
+}
+
+.danger{
+    border: 3px solid crimson;
+}
+
+.success{
+    border: 3px solid #3CB371;
+}
+
+.info{
+    border: 3px solid #008B8B;
+}
+
+.modal-content {
+    position: fixed;
+    width: 30%;
+    height: auto;
+    top: 10%;
+    left: 35%;
+    border-radius: 3px;
+    background: #fff;
+    padding: 0.5em 1em;
+    text-align: justify;
+    z-index: 5;
+    display: none;
+
+   }
+
+.isActive{
+    display: block!important;
+   }
+   .close {
+       float: right;
+       padding: 0.5em 0;
+       cursor: pointer;
+       width: 15px;
+       height: 20px;
+       position: relative;
+       right: 0;
+       
+  }
+
+.modal-content-item> h2{
+    text-align: center;
+    margin: 10px 0px;
+    clear: both;
+}
+
+.modal-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.modal-content-item {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: static;
+    clear: both;
+}
+
+.modal-area{
+    width: 95%;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+form#modal-form .modal-button {
+    float: right;
+    margin: 10px 0 10px 10px;
+}
