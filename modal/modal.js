@@ -53,8 +53,6 @@ Modal.prototype.dispatch = function (eventType) {
     return this;
 };
 
-// Вы мне тут конечно подсказывали, но тут у меня две проблемы - при любых раскладах у меня всегда кто-то другой инициировал событие, и вторая -
-// я что-то не соображу как правильно прописать скрытие окна
 
 document.addEventListener('onModalOpen', function(event){
     if(event.currentModal === this){
