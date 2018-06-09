@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modal</title>
+    <link href="modal.css" rel="stylesheet">
+</head>
+<body>
+<div class="flex-all">
+    <div class="main">
+        <div class="modal-item">
+            <button class="modal-button">Click me</button>
+            <div class="modal-block">
+                <div class="modal-content info">
+                    <div class="close">✖</div>
+                    <div class="modal-content-item">
+                        <h2>My Neighbor Totoro</h2>
+                        <p>This superbly animated children's tale is directed by Hayao Miyazaki, one of Japan's most
+                            beloved animators.
+                            The story follows Satsuke and Mei, two young girls who find that their new country home is
+                            in a mystical
+                            forest inhabited by a menagerie of mystical creatures called Totoros. They befriend O
+                            Totoro, the biggest
+                            and eldest Totoro, who is also the king of the forest. As their girls' mother lies sick in
+                            the hospital, O
+                            Totoro brings the sisters on a magical adventure but also helps them to understand the
+                            realities of life.
+                            Like most films released by Miyazaki's Studio Ghibli, this family-oriented feature has a
+                            powerful ecological
+                            theme. The English-language version of this film wasn't dubbed until many years later,
+                            explaining the
+                            presence of actors such as Dakota Fanning in the cast (who wasn't even born until 1994).</p>
+                    </div>
+                    <button class="modal-button modal-button-yes" data-value='yes'>OK</button>
+                </div>
+                <div class="modal-background"></div>
+            </div>
+        </div>
+    </div>
+    <div class="confirm">
+        <div class="modal-item">
+            <button class="modal-button">Click me</button>
+            <div class="modal-block">
+                <div class="modal-content info">
+                    <div class="close">✖</div>
+                    <div class="modal-content-item">
+                        <div class="modal-message-one">Какова вероятность наступления зомбиапокалипсиса, если миром будут править панды?</div>
+                    </div>
+                    <button class="modal-button modal-button-yes" data-value='Высокая'>Высокая</button>
+                    <button class="modal-button modal-button-cancel" data-value='Низкая'>Низкая</button>
+                </div>
+                <div class="modal-background"></div>
+            </div>
+        </div>
+    </div>
+    <div class="question">
+        <div class="modal-item">
+            <button class="modal-button">Click me</button>
+            <div class="modal-block">
+                <div class="modal-content info">
+                    <div class="close">✖</div>
+                    <div class="modal-content-item">
+                        <div class="modal-message-two">Какие организмы выживут после наступления зомбиапокалипсиса, если миром будут править панды?</div>
+                        <p><input  class="modal-area modal-message-input" name="text" type="text"></p>
+                    </div>
+                    <button class="modal-button modal-button-yes" data-value='ok'>Ok</button>
+                    <button class="modal-button modal-button-cancel" data-value='cancel'>Cancel</button>
+                </div>
+                <div class="modal-background"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ansverUserText"></div>
+<script src="modal.js"></script>
+<script>
+    var modal = new Modal(document.querySelector('.main')).render();
+    var confirm = new ModalConfirm(document.querySelector('.confirm')).render();
+    var question = new ModalQestion(document.querySelector('.question')).render();
+</script>
+</body>
+</html>
