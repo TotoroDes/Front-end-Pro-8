@@ -45,17 +45,10 @@ Modal.prototype.render = function () {
 var ModalConfirm = function (rootElement) {
     Modal.apply(this, arguments);
     this.buttonCancel = this.rootElement.querySelector('.modal-button-cancel');
-    this.ansverBlock = document.querySelector('.ansverUserText');
-    this.readModalButton = this.readModalButton.bind(this);
 };
 
 ModalConfirm.prototype = Object.create(Modal.prototype);
 ModalConfirm.prototype.constructor = ModalConfirm;
-
-
-ModalConfirm.prototype.readModalButton = function () {
-
-};
 
 
 ModalConfirm.prototype.delegateEvents = function() {
@@ -67,6 +60,7 @@ ModalConfirm.prototype.delegateEvents = function() {
 var ModalQestion = function (rootElement) {
     Modal.apply(this, arguments);
     this.ansverText = document.querySelector('.modal-message-input');
+    this.ansverBlock = document.querySelector('.ansverUserText');
     this.readModalUserText = this.readModalUserText.bind(this);
 };
 
