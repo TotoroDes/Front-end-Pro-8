@@ -57,11 +57,6 @@ ModalConfirm.prototype.readModalButton = function () {
 
 };
 
-ModalConfirm.prototype.modalClose = function(event) {
-    Modal.prototype.modalClose.apply(this)
-    var elem = event.target;
-    this.ansverBlock.innerHTML = 'Ответ: ' + elem.getAttribute('dataValue');
-};
 
 ModalConfirm.prototype.delegateEvents = function() {
       Modal.prototype.delegateEvents.apply(this);
