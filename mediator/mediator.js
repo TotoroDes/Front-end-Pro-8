@@ -26,7 +26,7 @@ var Human = function (mediator, name) {
 };
 
 Human.prototype.say = function () {
-    console.log(this.name + ' say HelLo');
+    console.log(this.name + ' say Hello');
     this.mediator.sayText(this);
 };
 
