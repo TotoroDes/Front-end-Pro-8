@@ -1,10 +1,11 @@
 var Cat = function (mediator, name) {
     this.mediator = mediator;
     this.name = name;
+    this.text = ' say Meow';
 };
 
 Cat.prototype.say = function () {
-    console.log(this.name + ' say Meow');
+    console.log(this.name + ' ' + this.text);
     this.mediator.sayText(this);
 };
 
@@ -12,10 +13,11 @@ Cat.prototype.say = function () {
 var Ghost = function (mediator, name) {
     this.mediator = mediator;
     this.name = name;
+    this.text = 'say Buuuu!!!';
 };
 
-Ghost.prototype.say = function () {
-    console.log(this.name + ' say Buuuu!!!');
+Ghost.prototype.say = function (){
+    console.log(this.name + ' ' + this.text);
     this.mediator.sayText(this);
 };
 
@@ -23,11 +25,12 @@ Ghost.prototype.say = function () {
 var Human = function (mediator, name) {
     this.mediator = mediator;
     this.name = name;
+    this.text = ' say Hello';
 };
 
 Human.prototype.say = function () {
-    console.log(this.name + ' say Hello');
-    this.mediator.sayText(this);
+    console.log(this.name + ' ' + this.text);
+       this.mediator.sayText(this);
 };
 
 var Mediator = {
@@ -38,7 +41,7 @@ var Mediator = {
     sayText: function (guy) {
         for (var i = 0; i < this.guys.length; i++) {
             if (this.guys[i] !== guy) {
-                this.guys[i].say();
+               console.log(this.guys[i].name + ' ' + this.guys[i].text);
             }
         }
     }
