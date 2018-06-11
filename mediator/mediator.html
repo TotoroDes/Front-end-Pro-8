@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mediator</title>
+    <script src="mediator.js"></script>
+</head>
+<body>
+<script>
+
+    var cat = new Cat(Mediator, "Munakata");
+    var ghost = new Ghost(Mediator, "Sakura");
+    var human = new Human(Mediator, "Masaki");
+
+    Mediator.addGuys(cat);
+    Mediator.addGuys(ghost);
+    Mediator.addGuys(human);
+
+    cat.say();
+    </script>
+</body>
+</html>
