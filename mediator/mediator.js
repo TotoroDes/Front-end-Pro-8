@@ -1,7 +1,7 @@
 var Cat = function (mediator, name) {
     this.mediator = mediator;
     this.name = name;
-    this.text = ' say Meow';
+    this.text = 'say Meow';
 };
 
 Cat.prototype.say = function () {
@@ -25,7 +25,7 @@ Ghost.prototype.say = function (){
 var Human = function (mediator, name) {
     this.mediator = mediator;
     this.name = name;
-    this.text = ' say Hello';
+    this.text = 'say Hello';
 };
 
 Human.prototype.say = function () {
