@@ -5,7 +5,7 @@ var Cat = function (mediator, name) {
 
 Cat.prototype.say = function () {
     console.log(this.name + ' say Meow');
-   // this.mediator.sayText(this.name);
+    this.mediator.sayText(this);
 };
 
 
@@ -16,7 +16,7 @@ var Ghost = function (mediator, name) {
 
 Ghost.prototype.say = function () {
     console.log(this.name + ' say Buuuu!!!');
-  //  this.mediator.sayText(this.name);
+    this.mediator.sayText(this);
 };
 
 
@@ -27,7 +27,7 @@ var Human = function (mediator, name) {
 
 Human.prototype.say = function () {
     console.log(this.name + ' say HelLo');
- //   this.mediator.sayText(this.name);
+    this.mediator.sayText(this);
 };
 
 var Mediator = {
